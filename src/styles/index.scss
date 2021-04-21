@@ -6,3 +6,19 @@
 body {
   margin: 0;
 }
+
+input {
+  height: 1.5rem;
+}
+
+button {
+  height: calc(1.5rem + 6px);
+}
+
+// This class determines the max-width value that the page can has before stop growing
+.main-frame {
+  // The actual .main-frame's max-width value will be 1264 + 8 + 8 = 1280px
+  max-width: 1264px;
+  margin: 0 auto;
+  padding: 0 0.5rem;
+}

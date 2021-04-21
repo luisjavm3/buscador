@@ -1,9 +1,26 @@
 header.header {
   padding: 1.5rem 0;
-  background-color: pink;
+  background-color: $header-color;
 
   h1.title {
     margin: 0;
     text-align: center;
+  }
+
+  .search-engine {
+    margin-top: 1rem;
+
+    input {
+      // We have to remove 8px of width to the input in order to fill all its parent's width
+      width: calc(100% - 8px);
+    }
+
+    .search-button-wrapper {
+      margin-top: 0.1rem;
+
+      button {
+        width: 100%;
+      }
+    }
   }
 }
