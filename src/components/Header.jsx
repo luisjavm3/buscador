@@ -3,14 +3,47 @@ import React from 'react';
 const Header = () => {
   return (
     <header className="header">
+      {/* TITLE */}
       <div className="main-frame">
         <div className="title-wrapper">
           <h1 className="title">Buscador</h1>
         </div>
+
+        {/* SEARCH ENGINE */}
         <div className="search-engine">
+          {/* RADIO-BUTTONS-CONTAINER */}
+          <div className="radio-buttons-container">
+            {/* TEXT */}
+            <div className="radio-button-wrapper">
+              <label htmlFor="text">
+                <input id="text" type="radio" value="text" name="option" />
+                texto
+              </label>
+            </div>
+
+            {/* NUMERO */}
+            <div className="radio-button-wrapper">
+              <label htmlFor="number">
+                <input id="number" type="radio" value="number" name="option" />
+                número
+              </label>
+            </div>
+
+            {/* FECHA */}
+            <div className="radio-button-wrapper">
+              <label htmlFor="date">
+                <input id="date" type="radio" value="date" name="option" />
+                fecha
+              </label>
+            </div>
+          </div>
+
+          {/* INPUT */}
           <div className="input-wrapper">
             <input type="text" />
           </div>
+
+          {/* SEARCH BUTTON  */}
           <div className="search-button-wrapper">
             <button>Buscar</button>
           </div>

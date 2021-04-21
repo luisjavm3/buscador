@@ -7,20 +7,45 @@ header.header {
     text-align: center;
   }
 
+  input[type='text'] {
+    // We have to remove 8px of width to the input in order to fill all its parent's width
+    width: calc(100% - 8px);
+  }
+
+  button {
+    width: 100%;
+  }
+
   .search-engine {
     margin-top: 1rem;
+  }
 
-    input {
-      // We have to remove 8px of width to the input in order to fill all its parent's width
-      width: calc(100% - 8px);
+  .radio-buttons-container {
+    display: flex;
+  }
+
+  .input-wrapper,
+  .search-button-wrapper {
+    margin-top: 0.2rem;
+  }
+
+  .radio-button-wrapper {
+    width: 80px;
+
+    label {
+      display: flex;
+      width: 100%;
+      text-transform: capitalize;
     }
 
-    .search-button-wrapper {
-      margin-top: 0.1rem;
+    label:hover {
+      cursor: pointer;
+      background-color: $header-darken-color;
+      border-radius: 2px;
+    }
 
-      button {
-        width: 100%;
-      }
+    [type='radio'] {
+      background-color: red;
     }
   }
 }
