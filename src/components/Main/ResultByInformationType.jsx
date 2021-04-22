@@ -7,13 +7,15 @@ const foo = (informationModule, result) => {
       return result.map((usuario) => <UsuarioCard usuario={usuario} />);
 
     case 'fuentes':
-      break;
+      return result.map((fuente) => <UsuarioCard usuario={fuente} />);
 
     case 'conciliaciones':
-      break;
+      return result.map((conciliacion) => (
+        <UsuarioCard usuario={conciliacion} />
+      ));
 
     case 'tableros':
-      break;
+      return result.map((tablero) => <UsuarioCard usuario={tablero} />);
 
     default:
       break;

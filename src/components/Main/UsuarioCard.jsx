@@ -1,36 +1,49 @@
 import React from 'react';
 
 const getPlainUsuario = (usuario) => {
+  const plainUsuario = {};
+
   Object.keys(usuario).map((key) => {
     if (key === 'name') {
-      usuario.name = `${usuario.name.firstName} ${usuario.name.lastName}`;
+      plainUsuario.name = `${usuario.name.firstName} ${usuario.name.lastName}`;
+      return key;
     }
 
     if (key === 'tags') {
-      usuario.tags = usuario.tags.reduce(
-        (tagsString = '', tag) => `${tagsString}#${tag}`
+      plainUsuario.tags = usuario.tags.reduce(
+        (plainTags, tag) => `${plainTags} #${tag}`
       );
+      return key;
     }
+
+    plainUsuario[key] = usuario[key];
+    return key;
   });
+
+  return plainUsuario;
 };
 
 const UsuarioCard = ({ usuario }) => {
   const plainUsuario = getPlainUsuario(usuario);
 
   return (
-    <div className="usuario-card">
-      <ul>
-        {Object.keys(usuario).map((key, index) => {
-          return (
-            <li key={index}>
-              <strong>
-                {key} &nbsp;
-                {usuario[key]}
-              </strong>
-            </li>
-          );
-        })}
-      </ul>
+    <div className="card">
+      <div className="card-title">
+        {<h4>{/* {
+                  ()
+              } */}</h4>}
+      </div>
+      <div className="card-content">
+        <ul>
+          {Object.keys(plainUsuario).map((key, index) => {
+            return (
+              <li key={index}>
+                <strong>{`${key}: ${plainUsuario[key]}`}</strong>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 };
