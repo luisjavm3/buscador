@@ -35,6 +35,17 @@
 
         .value {
           text-align: justify;
+
+          ul {
+            list-style: none;
+
+            li {
+              span.name {
+                font-weight: 500;
+                text-transform: capitalize;
+              }
+            }
+          }
         }
       }
     }

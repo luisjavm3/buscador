@@ -20,6 +20,16 @@ const getPlainItem = (item, typeOfItem) => {
         plainItem.tags = item.tags.reduce(
           (plainTags, tag) => `${plainTags} #${tag}`
         );
+        plainItem.tags = `#${plainItem.tags}`;
+        break;
+
+      case 'visualType':
+        let text = (plainItem.visualType = item.visualType.reduce(
+          (plainVisualTypes, visualType) =>
+            `${plainVisualTypes}, ${visualType.name}`,
+          ''
+        ));
+        plainItem.visualType = text.substring(1, text.legnth);
         break;
 
       default:
@@ -47,7 +57,16 @@ const Card = ({ item, typeOfItem }) => {
                 <div className="key">
                   <strong>{key}</strong>
                 </div>
-                <div className="value">{`${plainItem[key]}`}</div>
+
+                <div className="value">
+                  {typeOfItem === 'tablero' && key === 'visuals' ? (
+                    <ul>
+                      <div>Lo que sea</div>
+                    </ul>
+                  ) : (
+                    <span className="value-content">{`${plainItem[key]}`}</span>
+                  )}
+                </div>
               </li>
             );
           })}
