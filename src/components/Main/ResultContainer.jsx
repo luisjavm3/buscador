@@ -28,14 +28,14 @@ const foo = (informationModule, result) => {
   }
 };
 
-const ResultContainer = ({ informationModule, result }) => {
+const ResultContainer = ({ informationModule: typeOfInformation, result }) => {
   return (
-    <div className="result-container">
+    <div className="result-container" id={typeOfInformation}>
       <h3 className="title">
-        <span>{informationModule}</span>
+        <span>{typeOfInformation}</span>
       </h3>
 
-      <div className="cards-container">{foo(informationModule, result)}</div>
+      <div className="cards-container">{foo(typeOfInformation, result)}</div>
     </div>
   );
 };

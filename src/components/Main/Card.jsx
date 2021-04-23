@@ -1,43 +1,53 @@
 import React from 'react';
 
-const getPlainUsuario = (item) => {
-  const plainUsuario = {};
+const getPlainItem = (item, typeOfItem) => {
+  const plainItem = {};
 
   Object.keys(item).map((key) => {
-    if (key === 'name') {
-      plainUsuario.name = `${item.name.firstName} ${item.name.lastName}`;
-      return key;
+    switch (key) {
+      case 'name':
+        typeOfItem === 'usuario'
+          ? (plainItem.name = `${item.name.firstName} ${item.name.lastName}`)
+          : (plainItem.name = item.name);
+        break;
+
+      case 'timestamp':
+        plainItem.createdAt = item.timestamp.createdAt;
+        plainItem.updateAt = item.timestamp.updateAt;
+        break;
+
+      case 'tags':
+        plainItem.tags = item.tags.reduce(
+          (plainTags, tag) => `${plainTags} #${tag}`
+        );
+        break;
+
+      default:
+        plainItem[key] = item[key];
+        break;
     }
 
-    if (key === 'tags') {
-      plainUsuario.tags = item.tags.reduce(
-        (plainTags, tag) => `${plainTags} #${tag}`
-      );
-      return key;
-    }
-
-    plainUsuario[key] = item[key];
     return key;
   });
 
-  return plainUsuario;
+  return plainItem;
 };
 
 const Card = ({ item, typeOfItem }) => {
-  const plainUsuario = getPlainUsuario(item);
+  const plainItem = getPlainItem(item, typeOfItem);
 
   return (
     <div className="card">
       <div className="card-title">{<h4>{typeOfItem}</h4>}</div>
       <div className="card-content">
-        <ul>
-          {Object.keys(plainUsuario).map((key, index) => {
+        <ul className="whole-item">
+          {Object.keys(plainItem).map((key, index) => {
             return (
               <li key={index}>
                 <div className="key">
                   <strong>{key}</strong>
                 </div>
-                <div className="value">{`${plainUsuario[key]}`}</div>
+                <div className="value">{`${plainItem[key]}`}</div>
               </li>
             );
           })}

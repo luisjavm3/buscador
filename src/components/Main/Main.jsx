@@ -13,7 +13,7 @@ const Main = ({ foundData }) => {
 
       {/* SHOW RESULTS */}
       <div className="results-container">
-        <h4 className="result">Resultados:</h4>
+        <h4 className="result">resultados:</h4>
 
         {Object.keys(foundData).map((key, index) => {
           const result = foundData[key];
