@@ -1,21 +1,19 @@
 import React from 'react';
-import UsuarioCard from './UsuarioCard';
+import Card from './Card';
 
 const foo = (informationModule, result) => {
   switch (informationModule) {
     case 'usuarios':
-      return result.map((usuario) => <UsuarioCard usuario={usuario} />);
+      return result.map((usuario) => <Card usuario={usuario} />);
 
     case 'fuentes':
-      return result.map((fuente) => <UsuarioCard usuario={fuente} />);
+      return result.map((fuente) => <Card usuario={fuente} />);
 
     case 'conciliaciones':
-      return result.map((conciliacion) => (
-        <UsuarioCard usuario={conciliacion} />
-      ));
+      return result.map((conciliacion) => <Card usuario={conciliacion} />);
 
     case 'tableros':
-      return result.map((tablero) => <UsuarioCard usuario={tablero} />);
+      return result.map((tablero) => <Card usuario={tablero} />);
 
     default:
       break;

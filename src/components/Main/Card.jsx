@@ -23,7 +23,7 @@ const getPlainUsuario = (usuario) => {
   return plainUsuario;
 };
 
-const UsuarioCard = ({ usuario }) => {
+const Card = ({ usuario }) => {
   const plainUsuario = getPlainUsuario(usuario);
 
   return (
@@ -48,4 +48,4 @@ const UsuarioCard = ({ usuario }) => {
   );
 };
 
-export default UsuarioCard;
+export default Card;
