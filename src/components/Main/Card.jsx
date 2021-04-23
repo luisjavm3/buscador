@@ -1,38 +1,34 @@
 import React from 'react';
 
-const getPlainUsuario = (usuario) => {
+const getPlainUsuario = (item) => {
   const plainUsuario = {};
 
-  Object.keys(usuario).map((key) => {
+  Object.keys(item).map((key) => {
     if (key === 'name') {
-      plainUsuario.name = `${usuario.name.firstName} ${usuario.name.lastName}`;
+      plainUsuario.name = `${item.name.firstName} ${item.name.lastName}`;
       return key;
     }
 
     if (key === 'tags') {
-      plainUsuario.tags = usuario.tags.reduce(
+      plainUsuario.tags = item.tags.reduce(
         (plainTags, tag) => `${plainTags} #${tag}`
       );
       return key;
     }
 
-    plainUsuario[key] = usuario[key];
+    plainUsuario[key] = item[key];
     return key;
   });
 
   return plainUsuario;
 };
 
-const Card = ({ usuario }) => {
-  const plainUsuario = getPlainUsuario(usuario);
+const Card = ({ item, typeOfItem }) => {
+  const plainUsuario = getPlainUsuario(item);
 
   return (
     <div className="card">
-      <div className="card-title">
-        {<h4>{/* {
-                  ()
-              } */}</h4>}
-      </div>
+      <div className="card-title">{<h4>{typeOfItem}</h4>}</div>
       <div className="card-content">
         <ul>
           {Object.keys(plainUsuario).map((key, index) => {
