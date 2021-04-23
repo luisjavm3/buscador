@@ -60,9 +60,22 @@ const Card = ({ item, typeOfItem }) => {
 
                 <div className="value">
                   {typeOfItem === 'tablero' && key === 'visuals' ? (
-                    <ul>
-                      <div>Lo que sea</div>
-                    </ul>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>name</th>
+                          <th>type</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {plainItem.visuals.map((vItem, index) => (
+                          <tr key={index}>
+                            <td>{vItem.name}</td>
+                            <td>{vItem.type}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   ) : (
                     <span className="value-content">{`${plainItem[key]}`}</span>
                   )}

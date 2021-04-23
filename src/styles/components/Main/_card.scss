@@ -30,7 +30,6 @@
 
         .key {
           text-transform: capitalize;
-          // color: #9ef01a;
         }
 
         .value {
@@ -48,6 +47,20 @@
           }
         }
       }
+    }
+  }
+
+  table {
+    width: 100%;
+
+    th {
+      background-color: rgba(204, 200, 200, 0.3);
+      border-radius: 3px;
+    }
+
+    th,
+    td {
+      text-align: center;
     }
   }
 }
