@@ -34,7 +34,10 @@ const Card = ({ item, typeOfItem }) => {
           {Object.keys(plainUsuario).map((key, index) => {
             return (
               <li key={index}>
-                <strong>{`${key}: ${plainUsuario[key]}`}</strong>
+                <div className="key">
+                  <strong>{key}</strong>
+                </div>
+                <div className="value">{`${plainUsuario[key]}`}</div>
               </li>
             );
           })}
