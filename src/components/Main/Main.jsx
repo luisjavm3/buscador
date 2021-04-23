@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ResultByInformationType from './ResultByInformationType';
+import ResultContainer from './ResultContainer';
 
 const Main = ({ foundData }) => {
   //   const [showResults, setShowResults] = useState(false);
@@ -20,7 +20,7 @@ const Main = ({ foundData }) => {
 
           if (result.length !== 0)
             return (
-              <ResultByInformationType
+              <ResultContainer
                 key={index}
                 informationModule={key}
                 result={result}
