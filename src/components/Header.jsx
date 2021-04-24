@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearch = () => {
+    if (!searchTerm) return console.log("There's no search term.");
+
+    console.log(`Searching: ${searchTerm}`);
+  };
+
+  const handleSearchTermChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
   return (
     <header className="header">
       {/* TITLE */}
@@ -41,12 +55,12 @@ const Header = () => {
           <div className="input-button-group">
             {/* INPUT */}
             <div className="input-wrapper">
-              <input type="text" />
+              <input type="text" onChange={(e) => handleSearchTermChange(e)} />
             </div>
 
             {/* SEARCH BUTTON  */}
             <div className="search-button-wrapper">
-              <button>Buscar</button>
+              <button onClick={() => handleSearch()}>Buscar</button>
             </div>
           </div>
         </div>
