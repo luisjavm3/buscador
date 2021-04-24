@@ -38,14 +38,16 @@ const Header = () => {
             </div>
           </div>
 
-          {/* INPUT */}
-          <div className="input-wrapper">
-            <input type="text" />
-          </div>
+          <div className="input-button-group">
+            {/* INPUT */}
+            <div className="input-wrapper">
+              <input type="text" />
+            </div>
 
-          {/* SEARCH BUTTON  */}
-          <div className="search-button-wrapper">
-            <button>Buscar</button>
+            {/* SEARCH BUTTON  */}
+            <div className="search-button-wrapper">
+              <button>Buscar</button>
+            </div>
           </div>
         </div>
       </div>

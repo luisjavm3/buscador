@@ -49,3 +49,18 @@ header.header {
     }
   }
 }
+
+@media screen and (min-width: 600px) {
+  .input-button-group {
+    display: flex;
+
+    .input-wrapper {
+      flex-grow: 1;
+      margin-right: 0.3rem;
+    }
+
+    .search-button-wrapper {
+      width: 200px;
+    }
+  }
+}

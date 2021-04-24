@@ -2,9 +2,9 @@ import React from 'react';
 
 import Header from './components/Header';
 import Main from './components/Main/Main';
-import './App.scss';
-
+import Footer from './components/Footer';
 import testData from './testData';
+import './App.scss';
 
 const foundData = {
   usuarios: testData.usuarios.slice(0, 12),
@@ -20,6 +20,7 @@ const App = () => {
       <div className="main-frame">
         <Main foundData={foundData} />
       </div>
+      <Footer />
     </div>
   );
 };
