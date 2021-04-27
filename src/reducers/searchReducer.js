@@ -1,7 +1,7 @@
 import { RESET_RESULT, SEARCH } from '../actionTypes';
 import testData from '../testData';
 
-const searchReducer = (state = { result: {} }, { type, payload }) => {
+const searchReducer = (state = { result: null }, { type, payload }) => {
   switch (type) {
     case SEARCH:
       const searchTerm = payload.searchTerm;

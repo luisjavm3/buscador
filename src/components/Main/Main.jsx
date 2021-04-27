@@ -2,9 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import ResultContainer from './ResultContainer';
 
-// const Main = ({ foundData }) => {
 const Main = () => {
-  //   const [showResults, setShowResults] = useState(false);
   const foundData = useSelector((state) => state.searchReducer.result);
   console.log(foundData);
 
