@@ -1,23 +1,11 @@
 import ReactDom from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import reducer from './reducers';
 
 import App from './App';
 
-const searchTermReducer = (state = {}, action) => {
-  switch (action.type) {
-    case 'UPDATE':
-      return { ...state, searchTerm: action.payload };
-
-    case 'REMOVE':
-      return { ...state, searchTerm: '' };
-
-    default:
-      return state;
-  }
-};
-
-const store = createStore(searchTermReducer);
+const store = createStore(reducer);
 
 ReactDom.render(
   <Provider store={store}>

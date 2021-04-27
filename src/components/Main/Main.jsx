@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ResultContainer from './ResultContainer';
 
 const Main = ({ foundData }) => {
@@ -26,6 +26,8 @@ const Main = ({ foundData }) => {
                 result={result}
               />
             );
+
+          return key;
         })}
       </div>
     </div>

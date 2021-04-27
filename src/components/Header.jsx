@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { SEARCH } from '../actionTypes';
 
 const Header = () => {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearch = () => {
-    if (!searchTerm) return console.log("There's no search term.");
-
-    console.log(`Searching: ${searchTerm}`);
+    console.log(`SEARCH_TERM: ${searchTerm}`);
+    dispatch({ type: SEARCH, payload: { searchTerm } });
   };
 
   const handleSearchTermChange = (e) => {
