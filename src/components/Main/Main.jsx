@@ -1,43 +1,41 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import ResultContainer from './ResultContainer';
 
-const Main = ({ foundData }) => {
+// const Main = ({ foundData }) => {
+const Main = () => {
   //   const [showResults, setShowResults] = useState(false);
+  const foundData = useSelector((state) => state.searchReducer.result);
+  console.log(foundData);
 
   return (
     <div className="main-container">
-      {/* WELCOME MESSAGE */}
-      <div className="welcome-message" style={style.notDisplay}>
-        <h2>Welcome!</h2>
-      </div>
+      {!foundData ? (
+        <div className="welcome-message">
+          <h2>There are no results</h2>
+        </div>
+      ) : (
+        <div className="results-container">
+          <h4 className="result">resultados:</h4>
 
-      {/* SHOW RESULTS */}
-      <div className="results-container">
-        <h4 className="result">resultados:</h4>
+          {Object.keys(foundData).map((key, index) => {
+            const result = foundData[key];
 
-        {Object.keys(foundData).map((key, index) => {
-          const result = foundData[key];
+            if (result.length !== 0)
+              return (
+                <ResultContainer
+                  key={index}
+                  informationModule={key}
+                  result={result}
+                />
+              );
 
-          if (result.length !== 0)
-            return (
-              <ResultContainer
-                key={index}
-                informationModule={key}
-                result={result}
-              />
-            );
-
-          return key;
-        })}
-      </div>
+            return key;
+          })}
+        </div>
+      )}
     </div>
   );
-};
-
-const style = {
-  notDisplay: {
-    display: 'none',
-  },
 };
 
 export default Main;

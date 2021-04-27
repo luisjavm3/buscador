@@ -1,2 +1,2 @@
-export const UPDATE_SEARCH_TERM = 'updateSearchTerm';
 export const SEARCH = 'search';
+export const RESET_RESULT = 'resetResult';

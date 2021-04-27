@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { SEARCH } from '../actionTypes';
+import { RESET_RESULT, SEARCH } from '../actionTypes';
+
+function isBlank(str) {
+  return !str || /^\s*$/.test(str);
+}
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -8,6 +12,11 @@ const Header = () => {
 
   const handleSearch = () => {
     console.log(`SEARCH_TERM: ${searchTerm}`);
+    if (isBlank(searchTerm)) {
+      dispatch({ type: RESET_RESULT });
+      return;
+    }
+
     dispatch({ type: SEARCH, payload: { searchTerm } });
   };
 

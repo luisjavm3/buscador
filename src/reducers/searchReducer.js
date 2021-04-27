@@ -1,10 +1,11 @@
-import { SEARCH } from '../actionTypes';
+import { RESET_RESULT, SEARCH } from '../actionTypes';
 import testData from '../testData';
 
 const searchReducer = (state = { result: {} }, { type, payload }) => {
   switch (type) {
     case SEARCH:
       const searchTerm = payload.searchTerm;
+
       const result = {
         conciliaciones: [],
         fuentes: [],
@@ -62,6 +63,9 @@ const searchReducer = (state = { result: {} }, { type, payload }) => {
       });
 
       return { ...state, result };
+
+    case RESET_RESULT:
+      return { ...state, result: null };
 
     default:
       return state;
