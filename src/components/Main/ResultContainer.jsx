@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from './Card';
 
-const foo = (informationModule, result) => {
+const renderItems = (informationModule, result) => {
   switch (informationModule) {
     case 'usuarios':
       return result.map((item) => (
@@ -35,7 +35,9 @@ const ResultContainer = ({ informationModule: typeOfInformation, result }) => {
         <span>{typeOfInformation}</span>
       </h3>
 
-      <div className="cards-container">{foo(typeOfInformation, result)}</div>
+      <div className="cards-container">
+        {renderItems(typeOfInformation, result)}
+      </div>
     </div>
   );
 };

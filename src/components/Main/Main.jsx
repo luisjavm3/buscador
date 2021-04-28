@@ -27,8 +27,6 @@ const Main = () => {
                   result={result}
                 />
               );
-
-            return key;
           })}
         </div>
       )}
