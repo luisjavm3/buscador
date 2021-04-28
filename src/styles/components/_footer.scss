@@ -1,4 +1,36 @@
 .footer {
-  background: $footer-color;
+  margin-top: 1rem;
+  background: black;
   color: white;
+  height: 200px;
+
+  .up-to-header {
+    height: 60px;
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: whitesmoke;
+      text-decoration: none;
+      height: 100%;
+      width: 100%;
+    }
+
+    a:hover {
+      background-color: $footer-color;
+    }
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+    height: calc(100% - 60px);
+
+    h3 {
+      margin: 0;
+    }
+  }
 }

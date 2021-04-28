@@ -3,7 +3,13 @@ import React from 'react';
 const Footer = () => {
   return (
     <div className="footer">
-      <h4>Footer</h4>
+      <div className="up-to-header">
+        <a href="#header">Ir al comienzo</a>
+      </div>
+
+      <div className="logo">
+        <h3>Buscador</h3>
+      </div>
     </div>
   );
 };

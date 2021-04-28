@@ -10,7 +10,7 @@ const Main = () => {
     <div className="main-container">
       {!foundData ? (
         <div className="welcome-message">
-          <h2>There are no results</h2>
+          <h2>Welcome!</h2>
         </div>
       ) : (
         <div className="results-container">

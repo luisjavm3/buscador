@@ -25,7 +25,7 @@ const Header = () => {
   };
 
   return (
-    <header className="header">
+    <header className="header" id="header">
       {/* TITLE */}
       <div className="main-frame">
         <div className="title-wrapper">
@@ -35,7 +35,7 @@ const Header = () => {
         {/* SEARCH ENGINE */}
         <div className="search-engine">
           {/* RADIO-BUTTONS-CONTAINER */}
-          <div className="radio-buttons-container">
+          <div className="radio-buttons-container" style={{ display: 'none' }}>
             {/* TEXT */}
             <div className="radio-button-wrapper">
               <label htmlFor="text">
