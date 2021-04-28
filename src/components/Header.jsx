@@ -24,6 +24,10 @@ const Header = () => {
     setSearchTerm(e.target.value);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.code === 'Enter') handleSearch();
+  };
+
   return (
     <header className="header" id="header">
       {/* TITLE */}
@@ -64,7 +68,11 @@ const Header = () => {
           <div className="input-button-group">
             {/* INPUT */}
             <div className="input-wrapper">
-              <input type="text" onChange={(e) => handleSearchTermChange(e)} />
+              <input
+                type="text"
+                onChange={(e) => handleSearchTermChange(e)}
+                onKeyDown={(e) => handleKeyDown(e)}
+              />
             </div>
 
             {/* SEARCH BUTTON  */}
