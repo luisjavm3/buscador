@@ -4,7 +4,6 @@ import ResultContainer from './ResultContainer';
 
 const Main = () => {
   const foundData = useSelector((state) => state.searchReducer.result);
-  console.log(foundData);
 
   return (
     <div className="main-container">

@@ -2,16 +2,11 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { RESET_RESULT, SEARCH } from '../actionTypes';
 
-function isBlank(str) {
-  return !str || /^\s*$/.test(str);
-}
-
 const Header = () => {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearch = () => {
-    console.log(`SEARCH_TERM: ${searchTerm}`);
     if (isBlank(searchTerm)) {
       dispatch({ type: RESET_RESULT });
       return;
@@ -27,6 +22,10 @@ const Header = () => {
   const handleKeyDown = (e) => {
     if (e.code === 'Enter') handleSearch();
   };
+
+  function isBlank(str) {
+    return !str || /^\s*$/.test(str);
+  }
 
   return (
     <header className="header" id="header">
