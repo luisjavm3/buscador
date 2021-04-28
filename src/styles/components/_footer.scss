@@ -18,7 +18,8 @@
     }
 
     a:hover {
-      background-color: $footer-color;
+      background-color: $lighten-footer-color;
+      font-weight: 500;
     }
   }
 
