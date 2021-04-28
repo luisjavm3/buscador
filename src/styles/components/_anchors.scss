@@ -1,0 +1,43 @@
+.anchors-component {
+  position: sticky;
+  top: 0px;
+
+  background-color: pink;
+
+  .anchors-container {
+    display: flex;
+
+    .anchor-wrapper {
+      height: 2.5rem;
+
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        text-transform: capitalize;
+
+        width: 100%;
+        height: 100%;
+      }
+
+      a:hover {
+        background-color: plum;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .anchors-component {
+    font-size: 0.8rem;
+
+    .anchors-container {
+      justify-content: space-evenly;
+
+      .anchor-wrapper {
+        flex-grow: 1;
+      }
+    }
+  }
+}
