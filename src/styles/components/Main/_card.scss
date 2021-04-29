@@ -4,11 +4,16 @@
   background-color: whitesmoke;
 
   .card-title {
-    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 1.5rem;
     border-radius: 3px;
-    text-align: center;
-    background-color: rgb(204, 200, 200);
-    color: black;
+    text-transform: capitalize;
+
+    // background-color: rgb(204, 200, 200);
+    background-color: $lighten-header-color;
 
     h4 {
       padding: 0.1rem;
@@ -54,7 +59,7 @@
     width: 100%;
 
     th {
-      background-color: rgba(204, 200, 200, 0.3);
+      background-color: #eaecea;
       border-radius: 3px;
     }
 
