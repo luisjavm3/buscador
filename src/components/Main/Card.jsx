@@ -1,5 +1,8 @@
 import React from 'react';
 
+/**
+ * This method map the Item and turn its properties into strings.
+ */
 const getPlainItem = (item, typeOfItem) => {
   const plainItem = {};
 

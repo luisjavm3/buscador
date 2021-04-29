@@ -2,30 +2,54 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import ResultContainer from './ResultContainer';
 
+/**
+ * This component renders all the result of the search.
+ * It sort the result by kind of information (conciliaciones, tableros, usuarios, letras)
+ */
 const Main = () => {
-  const foundData = useSelector((state) => state.searchReducer.result);
+  const result = useSelector((state) => state.searchReducer.result);
 
   return (
     <div className="main-container">
-      {!foundData ? (
+      {/* If  there is no search term render a welcome message */}
+      {!result ? (
         <div className="welcome-message">
-          <h2>Welcome!</h2>
+          <div className="welcome-title-wrapper">
+            <h2>Bienvenido!</h2>
+          </div>
+          <div>
+            <p>Por favor, introduce el texto que quieras buscar.</p>
+            <p>
+              Puedes buscar:
+              <ul>
+                <li>Texto</li>
+                <li>Numeros</li>
+                <li>Fechas</li>
+              </ul>
+            </p>
+          </div>
         </div>
       ) : (
         <div className="results-container">
           <h4 className="result">resultados:</h4>
 
-          {Object.keys(foundData).map((key, index) => {
-            const result = foundData[key];
+          <div className="no-results">
+            <p>No hay resultados para su búsqueda.</p>
+          </div>
 
-            if (result.length !== 0)
+          {Object.keys(result).map((key, index) => {
+            const resultByType = result[key];
+
+            if (resultByType.length)
               return (
                 <ResultContainer
                   key={index}
                   informationModule={key}
-                  result={result}
+                  result={resultByType}
                 />
               );
+
+            return '';
           })}
         </div>
       )}

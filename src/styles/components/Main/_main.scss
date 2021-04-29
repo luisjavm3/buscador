@@ -7,4 +7,10 @@ div.main-container {
     color: gray;
     text-transform: capitalize;
   }
+
+  .no-results {
+    padding-top: 3rem;
+    position: absolute;
+    z-index: -1;
+  }
 }
