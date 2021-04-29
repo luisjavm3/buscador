@@ -15,10 +15,6 @@ const Header = () => {
     dispatch({ type: SEARCH, payload: { searchTerm } });
   };
 
-  const handleSearchTermChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
-
   const handleKeyDown = (e) => {
     if (e.code === 'Enter') handleSearch();
   };
@@ -69,7 +65,7 @@ const Header = () => {
             <div className="input-wrapper">
               <input
                 type="text"
-                onChange={(e) => handleSearchTermChange(e)}
+                onChange={(e) => setSearchTerm(e.target.value)}
                 onKeyDown={(e) => handleKeyDown(e)}
               />
             </div>

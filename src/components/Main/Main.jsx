@@ -10,49 +10,49 @@ const Main = () => {
   const result = useSelector((state) => state.searchReducer.result);
 
   return (
-    <div className="main-container">
-      {/* If  there is no search term render a welcome message */}
-      {!result ? (
-        <div className="welcome-message">
-          <div className="welcome-title-wrapper">
-            <h2>Bienvenido!</h2>
-          </div>
-          <div>
-            <p>Por favor, introduce el texto que quieras buscar.</p>
-            <p>
-              Puedes buscar:
+    <div className="main-frame">
+      <div className="main-container">
+        {/* If  there is no search term then render a welcome message */}
+        {!result ? (
+          <div className="welcome-message">
+            <div className="welcome-title-wrapper">
+              <h2>Bienvenido!</h2>
+            </div>
+            <div>
+              <p>Por favor, introduce el texto que quieras buscar.</p>
+              <p>Puedes buscar:</p>
               <ul>
                 <li>Texto</li>
                 <li>Números</li>
                 <li>Fechas</li>
               </ul>
-            </p>
+            </div>
           </div>
-        </div>
-      ) : (
-        <div className="results-container">
-          <h4 className="result">resultados:</h4>
+        ) : (
+          <div className="results-container">
+            <h4 className="result">resultados:</h4>
 
-          <div className="no-results">
-            <p>No hay resultados para su búsqueda.</p>
+            <div className="no-results">
+              <p>No hay resultados para su búsqueda.</p>
+            </div>
+
+            {Object.keys(result).map((key, index) => {
+              const resultByType = result[key];
+
+              if (resultByType.length)
+                return (
+                  <ResultContainer
+                    key={index}
+                    informationModule={key}
+                    result={resultByType}
+                  />
+                );
+
+              return '';
+            })}
           </div>
-
-          {Object.keys(result).map((key, index) => {
-            const resultByType = result[key];
-
-            if (resultByType.length)
-              return (
-                <ResultContainer
-                  key={index}
-                  informationModule={key}
-                  result={resultByType}
-                />
-              );
-
-            return '';
-          })}
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
