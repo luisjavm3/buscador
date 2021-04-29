@@ -6,11 +6,11 @@ La búsqueda se realiza de forma indiscriminada en todos los arrays de prueba (C
 
 ### Intalar dependencias:
 
-Yarn install
+    Yarn install
 
 ### Correr proyecto:
 
-Yarn start
+    Yarn start
 
 ## Cuestionario
 
@@ -22,7 +22,7 @@ El uso de JQuery en ReactJS podría por el contrario dificultar la legibilidad d
 
 2. ¿Porque usarias Hooks de las nuevas versiones de ReactJS, en lugar de class component?
 
-Los usarías por la mera recomendación de los desarrolladores y mas grandes expertos de ReactJS. Ademas, a pesar de mi poca experiencia con el framework puedo ver que los Hooks quizás sean un poco difícil entender al comienzo, simplifican muchas tareas fundamentales. Considero que ellos tienen un nivel mas alto de abstracción y nos permiten a los desarrolladores centrarnos mas en el código.
+Los usarías por la mera recomendación de los desarrolladores y mas grandes expertos de ReactJS. Ademas, a pesar de mi poca experiencia con el framework puedo ver que los Hooks quizás sean un poco difícil entender al comienzo, pero simplifican muchas tareas fundamentales. Considero que ellos tienen un nivel mas alto de abstracción y nos permiten a los desarrolladores centrarnos mas en el código.
 
 3. ¿Que es un archivo JSX?
 
@@ -40,6 +40,6 @@ Existen varias diferencias, la primera de ellas es el hecho de que toda función
 
 7.  ¿Que nos permite hacer la siguiente declaración?
 
-    const anyFunction = (param_1) => (param_2) => param_1 + param_2
+const anyFunction = (param_1) => (param_2) => param_1 + param_2
 
 Nos permite declarar una función llamada anyFunction que recibe por parámetro param_1 y retorna otra función que a su vez recibe por parámetro a param_2, siendo esta ultima la que sume param_1 y param_2. Lo interesante de la ultima función es que puede acceder al parámetro que se le pasó a su 'función padre' y hacer operaciones dentro de ella.
