@@ -23,7 +23,7 @@ const Main = () => {
               Puedes buscar:
               <ul>
                 <li>Texto</li>
-                <li>Numeros</li>
+                <li>Números</li>
                 <li>Fechas</li>
               </ul>
             </p>
