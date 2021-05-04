@@ -8,6 +8,7 @@ import ResultContainer from './ResultContainer';
  */
 const Main = () => {
   const result = useSelector((state) => state.result);
+  const lastestSearchTerm = useSelector((state) => state.lastestSearchTerm);
 
   return (
     <div className="main-frame">
@@ -33,7 +34,9 @@ const Main = () => {
             <h4 className="result">resultados:</h4>
 
             <div className="no-results">
-              <p>No hay resultados para su búsqueda.</p>
+              <p>
+                No hay resultados para <strong>{lastestSearchTerm}</strong>
+              </p>
             </div>
 
             {Object.keys(result).map((key, index) => {

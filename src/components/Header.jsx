@@ -4,6 +4,7 @@ import {
   RESET_RESULT,
   RESET_SEARCH_TERM,
   SEARCH_RESULT,
+  UPDATE_LASTEST_SEARCH_TERM,
   UPDATE_SEARCH_TERM,
 } from '../redux/actionTypes';
 
@@ -19,6 +20,10 @@ const Header = () => {
       return;
     }
 
+    dispatch({
+      type: UPDATE_LASTEST_SEARCH_TERM,
+      payload: { lastestSearchTerm: searchTerm },
+    });
     dispatch({ type: SEARCH_RESULT, payload: { searchTerm } });
   };
 
