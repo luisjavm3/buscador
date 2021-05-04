@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 /**
- * This component is a kind of toolbar, but it's shows only if search result contains at least one result.
+ * This component is a kind of toolbar, but it shows up only if search-result contains at least one result.
  */
 const Anchors = () => {
   const result = useSelector((state) => state.result);
