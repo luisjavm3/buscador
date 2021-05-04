@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { RESET_RESULT, SEARCH } from '../redux/actionTypes';
+import { RESET_RESULT, SEARCH_RESULT } from '../redux/actionTypes';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ const Header = () => {
       return;
     }
 
-    dispatch({ type: SEARCH, payload: { searchTerm } });
+    dispatch({ type: SEARCH_RESULT, payload: { searchTerm } });
   };
 
   const handleKeyDown = (e) => {

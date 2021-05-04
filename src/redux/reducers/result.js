@@ -1,9 +1,9 @@
-import { RESET_RESULT, SEARCH } from '../actionTypes';
+import { RESET_RESULT, SEARCH_RESULT } from '../actionTypes';
 import testData from '../../testData';
 
 export default function result(state = null, { type, payload }) {
   switch (type) {
-    case SEARCH:
+    case SEARCH_RESULT:
       const searchTerm = payload.searchTerm;
 
       state = {
