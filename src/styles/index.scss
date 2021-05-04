@@ -25,6 +25,11 @@ button {
   height: calc(1.5rem + 6px);
 }
 
+.highlight {
+  background-color: #ffff66;
+  font-weight: 500;
+}
+
 // This class determines the max-width value that the page can has before stop growing
 .main-frame {
   // The actual .main-frame's max-width value will be 1264 + 8 + 8 = 1280px

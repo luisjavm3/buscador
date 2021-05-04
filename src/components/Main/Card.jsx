@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 /**
  * This method map the Item and turn its properties into strings.
@@ -46,8 +47,36 @@ const getPlainItem = (item, typeOfItem) => {
   return plainItem;
 };
 
+/**
+ *  Look for occurrences and add them a style with a highlight effect.
+ * @param { String } keyValue
+ * @param { String } searcTerm
+ */
+const markOccurrences = (keyValue, searcTerm) => {
+  const stLength = searcTerm.length;
+  const indexOfSt = String(keyValue).indexOf(searcTerm);
+
+  if (indexOfSt !== -1) {
+    const matchEnd = indexOfSt + stLength;
+    const before = keyValue.substring(0, indexOfSt);
+    const match = keyValue.substring(indexOfSt, matchEnd);
+    const after = keyValue.substring(matchEnd, keyValue.length);
+
+    return (
+      <span>
+        {before}
+        <span className="highlight">{match}</span>
+        {after}
+      </span>
+    );
+  }
+
+  return keyValue;
+};
+
 const Card = ({ item, typeOfItem }) => {
   const plainItem = getPlainItem(item, typeOfItem);
+  const lastestSearchTerm = useSelector((state) => state.lastestSearchTerm);
 
   return (
     <div className="card">
@@ -73,14 +102,20 @@ const Card = ({ item, typeOfItem }) => {
                       <tbody>
                         {plainItem.visuals.map((vItem, index) => (
                           <tr key={index}>
-                            <td>{vItem.name}</td>
-                            <td>{vItem.type}</td>
+                            <td>
+                              {markOccurrences(vItem.name, lastestSearchTerm)}
+                            </td>
+                            <td>
+                              {markOccurrences(vItem.type, lastestSearchTerm)}
+                            </td>
                           </tr>
                         ))}
                       </tbody>
                     </table>
                   ) : (
-                    <span className="value-content">{`${plainItem[key]}`}</span>
+                    <span className="value-content">
+                      {markOccurrences(plainItem[key], lastestSearchTerm)}
+                    </span>
                   )}
                 </div>
               </li>
