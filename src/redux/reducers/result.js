@@ -1,5 +1,5 @@
-import { RESET_RESULT, SEARCH } from '../actionTypes';
-import testData from '../testData';
+import { RESET_RESULT, SEARCH } from '../../actionTypes';
+import testData from '../../testData';
 
 export default function result(state = null, { type, payload }) {
   switch (type) {
