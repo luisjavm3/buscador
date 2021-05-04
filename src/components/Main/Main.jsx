@@ -7,7 +7,7 @@ import ResultContainer from './ResultContainer';
  * It sort the result by kind of information (conciliaciones, tableros, usuarios, letras)
  */
 const Main = () => {
-  const result = useSelector((state) => state.searchReducer.result);
+  const result = useSelector((state) => state.result);
 
   return (
     <div className="main-frame">

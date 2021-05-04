@@ -1,12 +1,12 @@
 import { RESET_RESULT, SEARCH } from '../actionTypes';
 import testData from '../testData';
 
-const searchReducer = (state = { result: null }, { type, payload }) => {
+export default function result(state = null, { type, payload }) {
   switch (type) {
     case SEARCH:
       const searchTerm = payload.searchTerm;
 
-      const result = {
+      state = {
         conciliaciones: [],
         fuentes: [],
         usuarios: [],
@@ -26,7 +26,7 @@ const searchReducer = (state = { result: null }, { type, payload }) => {
                     item.timestamp.createdAt.includes(searchTerm) ||
                     item.timestamp.updateAt.includes(searchTerm)
                   ) {
-                    result[typeOfData].push(item);
+                    state[typeOfData].push(item);
                     found = true;
                   }
                   break;
@@ -37,12 +37,12 @@ const searchReducer = (state = { result: null }, { type, payload }) => {
                       item.name.firstName.includes(searchTerm) ||
                       item.name.lastName.includes(searchTerm)
                     ) {
-                      result[typeOfData].push(item);
+                      state[typeOfData].push(item);
                       found = true;
                     }
                   } else {
                     if (item.name.includes(searchTerm)) {
-                      result[typeOfData].push(item);
+                      state[typeOfData].push(item);
                       found = true;
                     }
                   }
@@ -50,7 +50,7 @@ const searchReducer = (state = { result: null }, { type, payload }) => {
 
                 default:
                   if (String(item[itemKey]).includes(searchTerm)) {
-                    result[typeOfData].push(item);
+                    state[typeOfData].push(item);
                     found = true;
                   }
                   break;
@@ -62,14 +62,12 @@ const searchReducer = (state = { result: null }, { type, payload }) => {
         });
       });
 
-      return { ...state, result };
+      return state;
 
     case RESET_RESULT:
-      return { ...state, result: null };
+      return (state = null);
 
     default:
       return state;
   }
-};
-
-export default searchReducer;
+}

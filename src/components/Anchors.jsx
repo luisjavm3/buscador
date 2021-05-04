@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
  * This component is a kind of toolbar, but it's shows only if search result contains at least one result.
  */
 const Anchors = () => {
-  const result = useSelector((state) => state.searchReducer.result);
+  const result = useSelector((state) => state.result);
 
   const isEmpty = () => {
     let isEmptyConciliaciones = result.conciliaciones.length === 0;
