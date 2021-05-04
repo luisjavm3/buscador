@@ -58,9 +58,9 @@ const markOccurrences = (keyValue, searcTerm) => {
 
   if (indexOfSt !== -1) {
     const matchEnd = indexOfSt + stLength;
-    const before = keyValue.substring(0, indexOfSt);
-    const match = keyValue.substring(indexOfSt, matchEnd);
-    const after = keyValue.substring(matchEnd, keyValue.length);
+    const before = String(keyValue).substring(0, indexOfSt);
+    const match = String(keyValue).substring(indexOfSt, matchEnd);
+    const after = String(keyValue).substring(matchEnd, keyValue.length);
 
     return (
       <span>
@@ -71,7 +71,7 @@ const markOccurrences = (keyValue, searcTerm) => {
     );
   }
 
-  return keyValue;
+  return String(keyValue);
 };
 
 const Card = ({ item, typeOfItem }) => {
