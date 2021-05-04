@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { RESET_RESULT, SEARCH } from '../actionTypes';
+import { RESET_RESULT, SEARCH } from '../redux/actionTypes';
 
 const Header = () => {
   const dispatch = useDispatch();

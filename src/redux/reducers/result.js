@@ -1,4 +1,4 @@
-import { RESET_RESULT, SEARCH } from '../../actionTypes';
+import { RESET_RESULT, SEARCH } from '../actionTypes';
 import testData from '../../testData';
 
 export default function result(state = null, { type, payload }) {
