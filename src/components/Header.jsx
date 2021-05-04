@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { RESET_RESULT, SEARCH_RESULT } from '../redux/actionTypes';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  RESET_RESULT,
+  RESET_SEARCH_TERM,
+  SEARCH_RESULT,
+  UPDATE_SEARCH_TERM,
+} from '../redux/actionTypes';
 
 const Header = () => {
   const dispatch = useDispatch();
-  const [searchTerm, setSearchTerm] = useState('');
+  // const [searchTerm, setSearchTerm] = useState('');
+  const searchTerm = useSelector((state) => state.searchTerm);
 
   const handleSearch = () => {
     if (isBlank(searchTerm)) {
+      dispatch({ type: RESET_SEARCH_TERM });
       dispatch({ type: RESET_RESULT });
       return;
     }
@@ -65,7 +72,12 @@ const Header = () => {
             <div className="input-wrapper">
               <input
                 type="text"
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={(e) =>
+                  dispatch({
+                    type: UPDATE_SEARCH_TERM,
+                    payload: { searchTerm: e.target.value },
+                  })
+                }
                 onKeyDown={(e) => handleKeyDown(e)}
               />
             </div>

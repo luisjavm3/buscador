@@ -9,6 +9,6 @@ export default function searchTerm(state = '', { type, payload }) {
       return (state = '');
 
     default:
-      break;
+      return state;
   }
 }
