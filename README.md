@@ -36,7 +36,8 @@ Existen varias diferencias, la primera de ellas es el hecho de que toda función
     Redux es una librería que nos ayuda a tener de manera muy fácil el estado global de nuestra aplicación. Nos permite acceder a cualquier dato almacenado en el store desde cualquier componente, sin tener los inconvenientes que aparecen a la hora de compartir información entre componentes hermanos o componentes nietos de diferentes componentes padres.
 
 6.  ¿Por qué usuarios pruebas unitarias en tu código?
-    Usaría pruebas unitarias en mi código porque sé la importancia de asegurar de alguna manera la calidad del código. Actualmente desconozco cómo hacer pruebas unitarias en React(y en general en FrontEnd), pero tuve una corta experiencia haciendo pruebas unitarias en Java y en breve aprenderé a hacerla con ReactJS.
+    Porque es una técnica que asegura la calidad del código y nos permite saber donde se encuentran los errores. También es un método que nos da mucha tranquilidad a la hora de presentar el producto final.
+    Otra gran ventaja de usar pruebas es mantener limpio nuestro código, ya que nos permite separar el codigo fuente del usado para demostrar el correcto funcionamiento de dicho código.
 
 7.  ¿Que nos permite hacer la siguiente declaración?
 
