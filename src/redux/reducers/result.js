@@ -7,60 +7,19 @@ export default function result(state = null, { type, payload }) {
       const searchTerm = payload.searchTerm;
 
       state = {
-        conciliaciones: [],
-        fuentes: [],
         usuarios: [],
+        fuentes: [],
+        conciliaciones: [],
         tableros: [],
       };
 
-      Object.keys(testData).forEach((typeOfData) => {
-        testData[typeOfData].forEach((item) => {
-          try {
-            Object.keys(item).forEach((itemKey) => {
-              let found = false;
-              let BreakException = {};
-
-              switch (itemKey) {
-                case 'timestamp':
-                  if (
-                    item.timestamp.createdAt.includes(searchTerm) ||
-                    item.timestamp.updateAt.includes(searchTerm)
-                  ) {
-                    state[typeOfData].push(item);
-                    found = true;
-                  }
-                  break;
-
-                case 'name':
-                  if (typeOfData === 'usuarios') {
-                    if (
-                      item.name.firstName.includes(searchTerm) ||
-                      item.name.lastName.includes(searchTerm)
-                    ) {
-                      state[typeOfData].push(item);
-                      found = true;
-                    }
-                  } else {
-                    if (item.name.includes(searchTerm)) {
-                      state[typeOfData].push(item);
-                      found = true;
-                    }
-                  }
-                  break;
-
-                default:
-                  if (String(item[itemKey]).includes(searchTerm)) {
-                    state[typeOfData].push(item);
-                    found = true;
-                  }
-                  break;
-              }
-
-              if (found) throw BreakException;
-            });
-          } catch (error) {}
-        });
-      });
+      state.usuarios = searchUsuarios(testData.usuarios, searchTerm);
+      state.fuentes = searchFuentes(testData.fuentes, searchTerm);
+      state.conciliaciones = searchConciliaciones(
+        testData.conciliaciones,
+        searchTerm
+      );
+      state.tableros = searchTableros(testData.tableros, searchTerm);
 
       return state;
 
@@ -71,3 +30,91 @@ export default function result(state = null, { type, payload }) {
       return state;
   }
 }
+
+export const searchUsuarios = (arr, searchTerm) => {
+  searchTerm = String(searchTerm);
+
+  return arr.filter(
+    (usuario) =>
+      String(usuario._id).includes(searchTerm) ||
+      String(usuario.isActive).includes(searchTerm) ||
+      String(usuario.age).includes(searchTerm) ||
+      String(usuario.name.firstName).includes(searchTerm) ||
+      String(usuario.name.lastName).includes(searchTerm) ||
+      String(usuario.gender).includes(searchTerm) ||
+      String(usuario.company).includes(searchTerm) ||
+      String(usuario.email).includes(searchTerm) ||
+      String(usuario.phone).includes(searchTerm) ||
+      String(usuario.address).includes(searchTerm) ||
+      String(usuario.createdAt).includes(searchTerm) ||
+      String(usuario.tags).includes(searchTerm)
+  );
+};
+
+export const searchFuentes = (arr, searchTerm) => {
+  searchTerm = String(searchTerm);
+
+  return arr.filter(
+    (fuente) =>
+      String(fuente._id).includes(searchTerm) ||
+      String(fuente.isActive).includes(searchTerm) ||
+      String(fuente.name).includes(searchTerm) ||
+      String(fuente.company).includes(searchTerm) ||
+      String(fuente.timestamp.createdAt).includes(searchTerm) ||
+      String(fuente.timestamp.updateAt).includes(searchTerm) ||
+      String(fuente.description).includes(searchTerm) ||
+      String(fuente.tags).includes(searchTerm)
+  );
+};
+
+export const searchConciliaciones = (arr, searchTerm) => {
+  searchTerm = String(searchTerm);
+
+  return arr.filter(
+    (conciliacion) =>
+      String(conciliacion._id).includes(searchTerm) ||
+      String(conciliacion.isActive).includes(searchTerm) ||
+      String(conciliacion.conciliationName).includes(searchTerm) ||
+      String(conciliacion.sourceA).includes(searchTerm) ||
+      String(conciliacion.sourceB).includes(searchTerm) ||
+      String(conciliacion.balance).includes(searchTerm) ||
+      String(conciliacion.timestamp.createdAt).includes(searchTerm) ||
+      String(conciliacion.timestamp.updateAt).includes(searchTerm) ||
+      String(conciliacion.description).includes(searchTerm) ||
+      String(conciliacion.tags).includes(searchTerm)
+  );
+};
+
+export const searchTableros = (arr, searchTerm) => {
+  searchTerm = String(searchTerm);
+
+  const visualTypeOrVisualsMatch = (tablero) => {
+    try {
+      tablero.visualType.forEach((item) => {
+        if (String(item.name).includes(searchTerm)) throw Error('Encontrado');
+      });
+
+      tablero.visuals.forEach((item) => {
+        if (
+          String(item.name).includes(searchTerm) ||
+          String(item.type).includes(searchTerm)
+        )
+          throw Error('Encontrado');
+      });
+    } catch (error) {
+      return true;
+    }
+  };
+
+  return arr.filter(
+    (tablero) =>
+      String(tablero._id).includes(searchTerm) ||
+      String(tablero.isActive).includes(searchTerm) ||
+      String(tablero.dashboardName).includes(searchTerm) ||
+      visualTypeOrVisualsMatch(tablero) ||
+      String(tablero.timestamp.createdAt).includes(searchTerm) ||
+      String(tablero.timestamp.updateAt).includes(searchTerm) ||
+      String(tablero.description).includes(searchTerm) ||
+      String(tablero.tags).includes(searchTerm)
+  );
+};
