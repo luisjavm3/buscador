@@ -33,7 +33,7 @@ const getPlainItem = (item, typeOfItem) => {
             `${plainVisualTypes}, ${visualType.name}`,
           ''
         ));
-        plainItem.visualType = text.substring(1, text.legnth);
+        plainItem.visualType = text.substring(1, text.length);
         break;
 
       default:
