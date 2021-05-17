@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 /**
  * This method map the Item and turn its properties into strings.
  */
-const getPlainItem = (item, typeOfItem) => {
+export const getPlainItem = (item, typeOfItem) => {
   const plainItem = {};
 
   Object.keys(item).map((key) => {
